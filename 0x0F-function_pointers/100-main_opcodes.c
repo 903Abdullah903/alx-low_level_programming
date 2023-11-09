@@ -1,10 +1,37 @@
-#ifndef FUNCTION_POINTERS_H
-#define FUNCTION_POINTERS_H
-#include <stddef.h>
+#include<stdio.h>
+#include<stdlib.h>
+/**
+ * main- Entry point
+(* a blank line
+ *@argc: the number of parameters.
+ *@argv: the parameeters in the case the number ob bytes.
+* Description: this program prints opcodes in hexa)?
+* Return: 0 in succes
+*/
+int main(int argc, char *argv[])
+{
+	int i, n;
 
-int _putchar(char c);
-void print_name(char *name, void (*f)(char *));
-int int_index(int *array, int size, int (*cmp)(int));
-void array_iterator(int *array, size_t size, void (*action)(int));
 
-#endif
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	n = atoi(argv[1]);
+	if (n < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		printf("%02hhx", *((char *)main + i));
+		if (i < n - 1)
+			printf(" ");
+		else
+			printf("\n");
+	}
+	return (0);
+}
